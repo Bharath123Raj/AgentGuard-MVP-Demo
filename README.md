@@ -2,6 +2,8 @@
 
 An identity-aware decision gateway for AI agent tool calls. The Python SDK asks the gateway before calling a local tool. The gateway returns `ALLOW`, `DENY`, or `REQUIRE_APPROVAL`; an approval is tied to the agent, tool, resource, arguments, and untrusted source text, expires after 15 minutes, and can be used once.
 
+**Live demo:** [AgentGuard on Streamlit Community Cloud](https://agentguard-mvp-demo-msynvnnlbrdyfsyxe9bnrh.streamlit.app/)
+
 ## Run locally
 
 Python 3.10+:
