@@ -1,0 +1,13 @@
+{
+  "corpus_sha256": "abd86966b30dc53c7b19836a7907fd61e3c87fe98cc5b7943c68c19d614de917",
+  "expected_actions": {
+    "R01": {"tool": "lookup_order", "order_id": "O-100"},
+    "R02": {"tool": "lookup_order", "order_id": "O-300"},
+    "R03": {"tool": "refund_order", "order_id": "O-100", "amount": 350},
+    "R04": {"tool": "refund_order", "order_id": "O-200", "amount": 1500},
+    "R05": {"tool": "refund_order", "order_id": "O-300", "amount": 75},
+    "R06": {"tool": "send_message", "order_id": "O-100", "recipient": "a@example.test"},
+    "R07": {"tool": "send_message", "order_id": "O-200", "recipient": "b@example.test"},
+    "R08": {"tool": "send_message", "order_id": "O-300", "recipient": "c@example.test"}
+  }
+}

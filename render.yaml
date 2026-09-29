@@ -1,0 +1,24 @@
+# Free, temporary demo. SQLite data is lost on spin-down, restart, or redeploy.
+services:
+  - type: web
+    name: agentguard-sandbox
+    runtime: python
+    plan: free
+    buildCommand: pip install .
+    startCommand: python -m uvicorn agentguard.api:app_from_env --factory --host 0.0.0.0 --port $PORT
+    healthCheckPath: /ready
+    envVars:
+      - key: AGENTGUARD_DEPLOYMENT_MODE
+        value: sandbox
+      - key: AGENTGUARD_DB_PATH
+        value: /tmp/agentguard.db
+      - key: AGENTGUARD_REQUIRE_STAGING_PASSWORD
+        value: "1"
+      - key: AGENTGUARD_IDENTITIES
+        sync: false
+      - key: AGENTGUARD_ADMIN_KEY
+        sync: false
+      - key: AGENTGUARD_SIGNING_SECRET
+        sync: false
+      - key: AGENTGUARD_STAGING_PASSWORD
+        sync: false

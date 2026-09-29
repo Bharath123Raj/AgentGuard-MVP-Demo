@@ -1,0 +1,14 @@
+services:
+  gateway:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file: .env
+    environment:
+      AGENTGUARD_DB_PATH: /app/data/agentguard.db
+      AGENTGUARD_DEPLOYMENT_MODE: sandbox
+    volumes:
+      - guard_data:/app/data
+    restart: unless-stopped
+volumes:
+  guard_data:
